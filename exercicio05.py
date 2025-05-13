@@ -26,14 +26,32 @@ def cadastrar_aluno(nome, email, serie, nota01=0, nota02=0, nota03=0):
 
     alunos.append(aluno)
     media = somar_notas(aluno["nota"])
-    return alunos
 
-obter_dados()
+    return alunos
 
 def mostrar_dados(dados_alunos):
     for aluno in dados_alunos:
-        print(f"Nome Do Aluno: {aluno["nome"]}")
-
+        print(f"Nome Do Aluno: {aluno["nome"]} | Email do Aluno: {aluno["email"]} | Serie do Aluno: {aluno["serie"]} | Notas do aluno: {aluno["notas"]} | Media do Aluno: {aluno["media"]}")
+        
     return print(dados_alunos)
 
-mostrar_dados(alunos)
+def iniciar_sistema():
+    while True:
+        print("="*80)
+        print("Opção 1 => Mostrar lista de alunos cadastrados.")
+        print("Opção 2 => Cadastrar Alunos.")
+        print("Opção 3 => Sair do sistema.")
+        print("="*80)
+
+        opcao = input("Escolha uma das opções a cima: ")
+
+        if opcao == "1":
+            mostrar_dados(alunos)
+        elif opcao == "2":
+            obter_dados()
+        else:
+            print("Sistema finalizado")
+            break
+            
+
+iniciar_sistema()
